@@ -204,14 +204,14 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
-            margin: 0 0 1.15rem;
+            margin: 0 0 1.5rem;
         }
         .skill-badges span {
             display: inline-block;
             padding: 0.18rem 0.55rem;
-            border: 1px solid #dfe3e6;
-            background: #f7f8f9;
-            color: var(--heading);
+            border: 1px solid #e5e7eb;
+            background: #f3f4f6;
+            color: #374151;
             font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.01em;
@@ -224,22 +224,17 @@
             gap: 0.6rem;
             margin: 0 0 1.35rem;
         }
-        .cta-row.cta-bottom {
-            margin: 1.35rem 0 0;
-            padding-top: 1.15rem;
-            border-top: 1px solid var(--border);
-        }
         .btn {
             display: inline-block;
             padding: 0.48rem 0.95rem;
             font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
-            border: 1px solid var(--link);
         }
         .btn:hover { text-decoration: none; }
         .btn-primary {
             background: var(--link);
+            border: 1px solid var(--link);
             color: #fff;
         }
         .btn-primary:hover {
@@ -249,26 +244,21 @@
         }
         .btn-secondary {
             background: #fff;
-            color: var(--link);
+            border: 1px solid #d1d5db;
+            color: var(--heading);
         }
         .btn-secondary:hover {
-            background: #f3f9fc;
-            color: var(--link-hover);
+            background: #f9fafb;
+            color: var(--heading);
         }
 
         footer {
             max-width: var(--max);
             margin: 0 auto;
             padding: 0 1.5rem 2.25rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem 1.25rem;
             color: var(--muted);
             font-size: 0.8rem;
         }
-        footer .cta-row { margin: 0; }
 
         .entry {
             padding: 1.05rem 0;
@@ -497,10 +487,6 @@
                 <p>
                     I'm particularly interested in problems that require owning the full ML lifecycle — from data and experimentation to evaluation, deployment, and monitoring at scale.
                 </p>
-                <div class="cta-row cta-bottom">
-                    <a class="btn btn-primary" href="#contact">Get in Touch</a>
-                    <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-                </div>
             </div>
         </section>
 
@@ -609,28 +595,17 @@
             <h1 class="page-title">Contact</h1>
             <div class="prose">
                 <p>Open to ML / computer vision roles, research collaborations, and robotics projects.</p>
-                <div class="cta-row">
-                    <a class="btn btn-primary" href="mailto:kamal.sh@northeastern.edu">Get in Touch</a>
-                    <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-                </div>
                 <ul class="contact-list">
                     <li>Email: <a href="mailto:kamal.sh@northeastern.edu">kamal.sh@northeastern.edu</a></li>
-                    <li>GitHub: <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener">github.com/shahidkamal-ml</a></li>
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/shahidkamal-ml" target="_blank" rel="noopener">linkedin.com/in/shahidkamal-ml</a></li>
-                    <li>CV: <a href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+                    <li>GitHub: <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener">github.com/shahidkamal-ml</a></li>
                 </ul>
             </div>
         </section>
     </main>
 </div>
 
-<footer>
-    <div>© 2026 Shahid Kamal</div>
-    <div class="cta-row">
-        <a class="btn btn-primary" href="#contact">Get in Touch</a>
-        <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-    </div>
-</footer>
+<footer>© 2026 Shahid Kamal</footer>
 
 <div class="search-modal" id="searchModal" aria-hidden="true">
     <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
