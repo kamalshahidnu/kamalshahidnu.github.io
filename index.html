@@ -200,6 +200,76 @@
         .prose p { margin-bottom: 1.05rem; }
         .prose strong { color: var(--heading); font-weight: 700; }
 
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0 0 1.15rem;
+        }
+        .skill-badges span {
+            display: inline-block;
+            padding: 0.18rem 0.55rem;
+            border: 1px solid #dfe3e6;
+            background: #f7f8f9;
+            color: var(--heading);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 0 0 1.35rem;
+        }
+        .cta-row.cta-bottom {
+            margin: 1.35rem 0 0;
+            padding-top: 1.15rem;
+            border-top: 1px solid var(--border);
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.48rem 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--link);
+        }
+        .btn:hover { text-decoration: none; }
+        .btn-primary {
+            background: var(--link);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--link-hover);
+            border-color: var(--link-hover);
+            color: #fff;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: var(--link);
+        }
+        .btn-secondary:hover {
+            background: #f3f9fc;
+            color: var(--link-hover);
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 1.5rem 2.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem 1.25rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+        footer .cta-row { margin: 0; }
+
         .entry {
             padding: 1.05rem 0;
             border-bottom: 1px solid var(--border);
@@ -234,14 +304,6 @@
 
         .contact-list { list-style: none; }
         .contact-list li { margin: 0.4rem 0; }
-
-        footer {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 0 1.5rem 2.25rem;
-            color: var(--muted);
-            font-size: 0.8rem;
-        }
 
         /* ===== SEARCH ===== */
         .search-modal {
@@ -415,6 +477,17 @@
                 <p>
                     I'm a graduate student at <strong>Northeastern University</strong> pursuing my MS in Electrical and Computer Engineering, specializing in <strong>Computer Vision</strong> and <strong>Machine Learning</strong>. Currently, I work as an <strong>AI Engineer</strong> at <a href="https://checkitanalytics.com" target="_blank" rel="noopener"><strong>Checkit Analytics</strong></a>, where I design and deploy LLM-based RAG pipelines and fine-tune open-source models for production financial analytics — reducing external API dependency and shipping AI products end-to-end.
                 </p>
+                <div class="skill-badges" aria-label="Core skills">
+                    <span>PyTorch</span>
+                    <span>LLMs</span>
+                    <span>RAG</span>
+                    <span>Computer Vision</span>
+                    <span>Model Compression</span>
+                </div>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#contact">Get in Touch</a>
+                    <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+                </div>
                 <p>
                     I am doing research under the supervision of <strong>Prof. Sarah Ostadabbas</strong> in the <a href="https://ostadabbas.sites.northeastern.edu/" target="_blank" rel="noopener">Augmented Cognition Laboratory (ACLab)</a>, focused on <strong>video understanding</strong>. ACLab builds intelligent systems that can reason about the real world from limited data rather than from ever-larger datasets. The lab specializes in motion-centric video understanding — because motion captures causality, intent, and dynamics that static frames cannot — and develops data-efficient models for tracking, behavior analysis, and action recognition in small-data domains where labels are scarce, expensive, or hard to share. My work sits in that agenda: learning structured representations such as pose, trajectories, and temporal dynamics so vision systems can interpret human and animal behavior in healthcare, robotics, and other real-world settings.
                 </p>
@@ -424,7 +497,10 @@
                 <p>
                     I'm particularly interested in problems that require owning the full ML lifecycle — from data and experimentation to evaluation, deployment, and monitoring at scale.
                 </p>
-                <p>Open to full-time roles in ML / AI.</p>
+                <div class="cta-row cta-bottom">
+                    <a class="btn btn-primary" href="#contact">Get in Touch</a>
+                    <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+                </div>
             </div>
         </section>
 
@@ -533,6 +609,10 @@
             <h1 class="page-title">Contact</h1>
             <div class="prose">
                 <p>Open to ML / computer vision roles, research collaborations, and robotics projects.</p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="mailto:kamal.sh@northeastern.edu">Get in Touch</a>
+                    <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+                </div>
                 <ul class="contact-list">
                     <li>Email: <a href="mailto:kamal.sh@northeastern.edu">kamal.sh@northeastern.edu</a></li>
                     <li>GitHub: <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener">github.com/shahidkamal-ml</a></li>
@@ -544,7 +624,13 @@
     </main>
 </div>
 
-<footer>© 2026 Shahid Kamal</footer>
+<footer>
+    <div>© 2026 Shahid Kamal</div>
+    <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Get in Touch</a>
+        <a class="btn btn-secondary" href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+    </div>
+</footer>
 
 <div class="search-modal" id="searchModal" aria-hidden="true">
     <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
