@@ -3,1622 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahid Kamal — ML Engineer & Researcher</title>
-    <meta name="description" content="Portfolio of Shahid Kamal — AI Engineer and AI Researcher at Northeastern University.">
+    <title>Shahid Kamal</title>
+    <meta name="description" content="Portfolio of Shahid Kamal — AI Engineer and researcher at Northeastern University.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #ffffff;
-            --bg-alt: #ffffff;
-            --bg-card: #ffffff;
-            --text-primary: #0f1729;
-            --text-body: #374151;
-            --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
-            --accent: #2563eb;
-            --accent-dark: #1d4ed8;
-            --accent-light: #3b82f6;
-            --accent-glow: rgba(37, 99, 235, 0.12);
-            --accent-glow-strong: rgba(37, 99, 235, 0.2);
-            --cyan: #06b6d4;
-            --cyan-glow: rgba(6, 182, 212, 0.1);
-            --emerald: #10b981;
-            --violet: #7c3aed;
-            --border: #e2e5ee;
-            --border-light: #eef0f5;
-            --shadow-sm: 0 1px 4px rgba(15, 23, 41, 0.04);
-            --shadow-md: 0 4px 24px rgba(15, 23, 41, 0.06);
-            --shadow-lg: 0 12px 48px rgba(15, 23, 41, 0.1);
-            --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.12);
-            --display: 'Montserrat', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-            --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-            --mono: 'Fira Code', monospace;
-            --radius: 12px;
-            --radius-sm: 8px;
+            --bg: #fff;
+            --text: #494e52;
+            --heading: #2d2d2d;
+            --muted: #7a8288;
+            --link: #0092ca;
+            --link-hover: #0077a5;
+            --border: #f2f3f3;
+            --masthead: #fff;
+            --sidebar-w: 220px;
+            --max: 1280px;
+            --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: auto; }
         body {
             background: var(--bg);
-            color: var(--text-body);
+            color: var(--text);
             font-family: var(--sans);
             font-size: 16px;
             line-height: 1.7;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { color: var(--link-hover); text-decoration: underline; }
+        img { max-width: 100%; }
 
-        ::selection { background: var(--accent-glow-strong); color: var(--accent-dark); }
-
-        /* ===== NAV ===== */
-        nav {
-            position: fixed;
-            top: 1rem; left: 50%;
-            transform: translateX(-50%);
-            width: min(1200px, calc(100% - 3rem));
-            z-index: 10000;
-            padding: 0.85rem 1.25rem;
+        /* ===== MASTHEAD ===== */
+        .masthead {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--masthead);
+            border-bottom: 1px solid var(--border);
+        }
+        .masthead-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(24px) saturate(1.4);
-            -webkit-backdrop-filter: blur(24px) saturate(1.4);
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: 18px;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .site-title {
+            color: var(--heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .site-title:hover { color: var(--link); text-decoration: none; }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 0.15rem 1.35rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--heading);
+            font-size: 0.92rem;
+            font-weight: 400;
+            text-decoration: none;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--link);
+            text-decoration: none;
         }
 
-        .nav-logo {
-            font-family: var(--display);
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
+        .nav-tools {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
-        .nav-logo-icon {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-logo-icon svg { width: 18px; height: 18px; }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .nav-links { display: flex; gap: 2.1rem; list-style: none; }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-        }
-
-        /* ===== SEARCH MODAL ===== */
-        .search-modal {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 6.5rem 1.25rem 1.5rem;
-            background: rgba(0, 0, 0, 0.45);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-            z-index: 20000;
-        }
-        .search-modal.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .search-dialog {
-            width: min(760px, 100%);
-            padding: 1.1rem 1.1rem 0.9rem;
-        }
-        .search-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        .search-title {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: var(--display);
-            font-weight: 750;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
-            font-size: 1.05rem;
-        }
-        .search-title svg { width: 18px; height: 18px; color: var(--accent); }
-        .search-close {
-            border: 1px solid var(--border-light);
-            background: rgba(255,255,255,0.55);
-            color: var(--text-secondary);
-            border-radius: 12px;
-            padding: 0.35rem 0.6rem;
-            font-size: 0.82rem;
-            cursor: pointer;
-        }
-        .search-input {
-            width: 100%;
-            padding: 0.85rem 0.95rem;
-            border-radius: 14px;
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            background: rgba(255,255,255,0.7);
-            color: var(--text-primary);
-            font-size: 1rem;
-            outline: none;
-            box-shadow: var(--shadow-sm);
-        }
-        .search-input:focus {
-            border-color: rgba(37, 99, 235, 0.35);
-            box-shadow: var(--shadow-sm), 0 0 0 4px rgba(37, 99, 235, 0.12);
-        }
-        .search-hint {
-            margin-top: 0.6rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .search-results {
-            margin-top: 0.85rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            max-height: min(56vh, 520px);
-            overflow: auto;
-            padding-right: 0.2rem;
-        }
-        .search-result {
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid rgba(226, 229, 238, 0.85);
-            background: rgba(255,255,255,0.62);
-            border-radius: 16px;
-            padding: 0.8rem 0.9rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-        }
-        .search-result:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-            border-color: rgba(37, 99, 235, 0.22);
-        }
-        .search-result-title {
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.35;
-        }
-        .search-result-meta {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
         .icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-            background: rgba(255,255,255,0.65);
+            width: 34px;
+            height: 34px;
+            border: 0;
+            background: transparent;
+            color: var(--heading);
+            cursor: pointer;
             display: grid;
             place-items: center;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: transform 0.2s ease, box-shadow 0.25s ease, color 0.25s ease;
         }
-        .icon-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-            color: var(--accent);
-        }
+        .icon-btn:hover { color: var(--link); }
         .icon-btn svg { width: 18px; height: 18px; }
-
-        .nav-links a {
-            font-family: var(--sans);
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 2px;
-            background: var(--accent);
-            border-radius: 1px;
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a:hover::after { width: 100%; }
 
         .hamburger {
             display: none;
             flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
+            gap: 4px;
             background: none;
             border: none;
+            cursor: pointer;
+            padding: 6px;
         }
         .hamburger span {
-            width: 22px; height: 2px;
-            background: var(--text-primary);
-            border-radius: 1px;
-            transition: all 0.3s ease;
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--heading);
         }
 
-        /* ===== LANDING (NEW TEMPLATE) ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 7.5rem 3rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .landing-grid {
-            width: min(1200px, 100%);
+        /* ===== PAGE LAYOUT ===== */
+        .page {
+            max-width: var(--max);
             margin: 0 auto;
+            padding: 2rem 1.5rem 3.5rem;
             display: grid;
-            grid-template-columns: 420px 1fr;
-            gap: 2.25rem;
-            position: relative;
-            z-index: 4;
+            grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+            gap: 3rem;
+            align-items: start;
         }
 
-        .glass-card {
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: 22px;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: sticky;
+            top: 5.25rem;
         }
-
-        .profile-card {
-            padding: 1.4rem 1.35rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            overflow: visible;
-            justify-content: center;
-        }
-        .profile-photo {
-            width: clamp(160px, 18vw, 190px);
-            height: clamp(160px, 18vw, 190px);
-            border-radius: 999px;
+        .sidebar-photo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
             overflow: hidden;
-            border: 6px solid rgba(255,255,255,0.9);
-            box-shadow: 0 18px 40px rgba(15, 23, 41, 0.14);
-            margin-bottom: 1rem;
-            position: relative;
+            margin: 0 auto 1rem;
+            background: #f3f4f6;
         }
-        .profile-photo img {
+        .sidebar-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 38%;
         }
-        .profile-name {
-            font-family: var(--display);
-            font-size: clamp(1.55rem, 4.6vw, 2.05rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-            line-height: 1.08;
-            margin-top: 0.2rem;
-            white-space: nowrap;
-            max-width: 100%;
-        }
-        .profile-degree {
-            margin-top: 0.55rem;
-            font-size: 0.98rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            line-height: 1.35;
-        }
-        .profile-school {
-            margin-top: 0.25rem;
-            font-size: 0.92rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            line-height: 1.2;
-        }
-        .profile-socials {
-            display: flex;
-            gap: 0.65rem;
-            margin: 1.1rem 0 1.2rem;
-        }
-        .social-pill {
-            width: 42px;
-            height: 42px;
-            border-radius: 999px;
-            border: 1px solid var(--border-light);
-            background: rgba(255,255,255,0.55);
-            display: grid;
-            place-items: center;
-            color: var(--text-secondary);
-            transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-        }
-        .social-pill:hover {
-            transform: translateY(-2px);
-            color: var(--accent);
-            box-shadow: var(--shadow-sm);
-        }
-        .social-pill svg { width: 18px; height: 18px; }
-
-        .landing-main {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .panel {
-            padding: 1.25rem 1.25rem 1.2rem;
-        }
-        .panel-header {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            margin-bottom: 0.75rem;
-        }
-        .mini-icon {
-            width: 34px;
-            height: 34px;
-            border-radius: 12px;
-            background: rgba(37, 99, 235, 0.12);
-            display: grid;
-            place-items: center;
-            color: var(--accent);
-        }
-        .mini-icon svg { width: 18px; height: 18px; }
-        .panel-title {
-            font-family: var(--display);
-            font-size: 1.35rem;
-            color: var(--text-primary);
-            font-weight: 750;
-            letter-spacing: -0.01em;
-        }
-        .panel p {
-            color: var(--text-body);
-            font-size: 1.02rem;
-            line-height: 1.85;
-        }
-        .panel p + p { margin-top: 0.75rem; }
-        .about-bullets {
-            margin-top: 0.95rem;
-            padding-left: 1.15rem;
-            color: var(--text-body);
-        }
-        .about-bullets li {
-            margin: 0.45rem 0;
-        }
-        .about-bullets strong {
-            color: var(--text-primary);
-            font-weight: 750;
-        }
-        .download-row {
-            margin-top: 1.05rem;
-            display: flex;
-            gap: 0.9rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .edu-strip {
-            padding: 1.2rem 1.2rem 1.25rem;
-        }
-        .edu-cards-inline {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-            margin-top: 0.9rem;
-        }
-        .edu-mini {
-            background: rgba(255,255,255,0.62);
-            border: 1px solid rgba(226, 229, 238, 0.85);
-            border-radius: 18px;
-            padding: 1rem 1rem;
-            box-shadow: var(--shadow-sm);
-        }
-        .edu-mini h3 {
-            font-weight: 750;
-            color: var(--text-primary);
-            font-size: 1.02rem;
-            margin-bottom: 0.35rem;
-        }
-        .edu-mini .edu-mini-meta {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.55;
-        }
-        .edu-mini .edu-mini-courses {
-            margin-top: 0.55rem;
-            color: var(--text-muted);
-            font-size: 0.86rem;
-            line-height: 1.55;
-        }
-        .edu-mini .edu-mini-courses strong {
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-
-        @media (max-width: 1024px) {
-            .landing-grid { grid-template-columns: 1fr; }
-            .profile-card { max-width: 520px; margin: 0 auto; }
-            .edu-cards-inline { grid-template-columns: 1fr; }
-        }
-
-        .hero-glow-1 {
-            position: absolute;
-            top: -15%; right: -5%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 65%);
-            border-radius: 50%;
-            filter: blur(80px);
-            display: none;
-        }
-
-        .hero-glow-2 {
-            position: absolute;
-            bottom: -10%; left: -10%;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 65%);
-            border-radius: 50%;
-            filter: blur(80px);
-            display: none;
-        }
-
-        .hero-content {
-            max-width: 720px;
-            position: relative;
-            z-index: 5;
-        }
-
-        /* Wider top "About" layout (uses available horizontal space) */
-        .hero-content.hero-about {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.45rem 1rem 0.45rem 0.6rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 1.75rem;
-            box-shadow: var(--shadow-sm);
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.15s;
-        }
-
-        .badge-dot {
-            width: 8px; height: 8px;
-            background: var(--emerald);
-            border-radius: 50%;
-        }
-
-        .hero-name {
-            font-family: var(--display);
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.3s;
-        }
-
-        .hero-name .gradient-text {
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-desc {
-            font-size: 1.12rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            max-width: 520px;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.45s;
-        }
-
-        .hero-actions {
-            display: flex; gap: 1rem; flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.6s;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center; gap: 0.5rem;
-            padding: 0.8rem 1.75rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: #fff;
-            font-family: var(--sans);
-            font-size: 0.88rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: none; cursor: pointer;
-            border-radius: var(--radius-sm);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.35);
-        }
-
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center; gap: 0.5rem;
-            padding: 0.8rem 1.75rem;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-family: var(--sans);
-            font-size: 0.88rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-ghost:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero side image */
-        .hero-visual {
-            position: absolute;
-            right: 5rem;
-            top: 38%;
-            transform: translateY(-50%);
-            width: 340px;
-            height: 340px;
-            z-index: 3;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.7s;
-        }
-
-        .hero-img-wrapper {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            border: 3px solid var(--accent);
-            box-shadow: var(--shadow-lg), var(--shadow-glow), 0 0 40px rgba(37, 99, 235, 0.15);
-        }
-
-        .hero-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(6, 182, 212, 0.1));
-            mix-blend-mode: overlay;
-        }
-
-        .hero-img-tag {
-            position: absolute;
-            bottom: 1rem; left: 1rem;
-            padding: 0.4rem 0.9rem;
-            background: rgba(15, 23, 41, 0.75);
-            backdrop-filter: blur(12px);
-            color: #fff;
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            letter-spacing: 0.03em;
-        }
-
-        .hero-img-tag .blink {
-            display: inline-block;
-            width: 6px; height: 6px;
-            background: var(--emerald);
-            border-radius: 50%;
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 6rem 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 0 auto 3.25rem;
-            max-width: 1200px;
-        }
-
-        .section-icon {
-            width: 40px; height: 40px;
-            background: var(--accent-glow);
-            border: 1px solid rgba(37, 99, 235, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .section-icon svg {
-            width: 20px; height: 20px;
-            stroke: var(--accent);
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .section-title {
-            font-family: var(--display);
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .section-line {
-            flex: 1; height: 1px;
-            background: linear-gradient(90deg, var(--border), transparent);
-        }
-
-        /* ===== ABOUT ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 3rem;
-            max-width: 1100px;
-            align-items: start;
-        }
-
-        /* When About is used inside the hero, let it breathe */
-        .hero .about-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .about-text p {
+        .sidebar-name {
+            text-align: center;
             font-size: 1.05rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-body);
-        }
-        .about-text strong {
-            color: var(--text-primary);
             font-weight: 700;
-        }
-
-        .about-right {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .about-image-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-md);
-            position: relative;
-            height: 200px;
-        }
-
-        .about-image-card img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-
-        .about-image-card .img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(15, 23, 41, 0.6), transparent 50%);
-        }
-
-        .about-image-card .img-label {
-            position: absolute;
-            bottom: 0.8rem; left: 1rem;
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: #fff;
-            letter-spacing: 0.05em;
-            opacity: 0.9;
-        }
-
-        .detail-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        .detail-card {
-            padding: 1.2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        .detail-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-            border-color: var(--accent-glow-strong);
-        }
-
-        .detail-label {
-            font-family: var(--mono);
-            font-size: 0.62rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
-            margin-bottom: 0.3rem;
-        }
-        .detail-value {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        /* ===== EXPERIENCE ===== */
-        .alt-bg {
-            background: rgba(255, 255, 255, 0.28);
-            border-top: 1px solid rgba(226, 229, 238, 0.7);
-            border-bottom: 1px solid rgba(226, 229, 238, 0.7);
-            backdrop-filter: blur(16px) saturate(1.2);
-            -webkit-backdrop-filter: blur(16px) saturate(1.2);
-        }
-
-        .timeline { max-width: 980px; position: relative; margin: 0 auto; }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px; top: 0; bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), var(--cyan), transparent);
-            border-radius: 1px;
-        }
-
-        .timeline-item {
-            padding: 1.35rem 1.35rem 1.25rem 3.5rem;
-            margin-bottom: 1.25rem;
-            position: relative;
-            opacity: 0; transform: translateY(20px);
-            transition: all 0.6s ease;
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: 22px;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
-        }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-item.visible { opacity: 1; transform: translateY(0); }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 8px; top: 6px;
-            width: 16px; height: 16px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.9);
-            border: 3px solid var(--accent);
-            z-index: 2;
-        }
-
-        .timeline-date {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            color: var(--accent);
-            letter-spacing: 0.06em;
-            margin-bottom: 0.3rem;
-        }
-        .timeline-role {
-            font-family: var(--display);
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.1rem;
-        }
-        .timeline-company {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-        .timeline-points { list-style: none; }
-        .timeline-points li {
-            color: var(--text-body);
-            font-size: 0.95rem;
-            padding-left: 1.3rem;
-            position: relative;
+            color: var(--heading);
             margin-bottom: 0.45rem;
-            line-height: 1.65;
         }
-        .timeline-points li::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 10px;
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--cyan);
-        }
-
-        /* ===== PROJECTS ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: var(--radius);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
-        }
-        a.project-card {
-            text-decoration: none;
-            color: inherit;
-        }
-        .project-card:hover {
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            transform: translateY(-5px);
-        }
-
-        .project-img {
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-        }
-        .project-img img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .project-card:hover .project-img img {
-            transform: scale(1.05);
-        }
-        .project-img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(15, 23, 41, 0.5), transparent 60%);
-        }
-
-        .project-body {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .project-name {
-            font-family: var(--display);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.7;
-            flex: 1;
-            margin-bottom: 1.25rem;
-        }
-        .project-tech {
-            display: flex; flex-wrap: wrap; gap: 0.4rem;
-        }
-        .project-tech span {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            padding: 0.28rem 0.65rem;
-            background: rgba(37, 99, 235, 0.10);
-            color: var(--accent);
-            border-radius: 4px;
-            letter-spacing: 0.03em;
-            font-weight: 500;
-        }
-
-        /* ===== SKILLS ===== */
-        .skills-mosaic {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.25rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .skill-group {
-            padding: 1.75rem;
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
-        }
-        .skill-group:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .skill-group-icon {
-            width: 36px; height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .skill-group-title {
-            font-family: var(--display);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-primary);
-            margin-bottom: 0.9rem;
-        }
-
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .skill-tag {
-            padding: 0.35rem 0.75rem;
-            background: rgba(255,255,255,0.55);
-            border: 1px solid rgba(226, 229, 238, 0.85);
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--text-body);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-        .skill-tag:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(37, 99, 235, 0.10);
-        }
-
-        /* ===== CERTIFICATIONS ===== */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.25rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .cert-card {
-            padding: 1.65rem;
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            transition: all 0.35s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
-        }
-        .cert-img {
-            height: 190px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(6, 182, 212, 0.05));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .sidebar-bio {
+            text-align: center;
+            font-size: 0.86rem;
+            color: var(--muted);
+            line-height: 1.55;
             margin-bottom: 1.1rem;
         }
-        .cert-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #fff;
+        .sidebar-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
         }
-        .cert-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-        }
-        .cert-meta {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.55rem;
-            font-weight: 600;
-        }
-        .cert-title {
-            /* Use a very readable system font stack (avoid heavy display styling here) */
-            font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.005em;
-            color: var(--text-primary);
-            margin-bottom: 0.55rem;
-            line-height: 1.38;
-        }
-        .cert-desc {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            flex: 1;
-            margin-bottom: 0.9rem;
-        }
-        .cert-verify {
-            font-family: var(--sans);
+        .sidebar-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: var(--text);
             font-size: 0.86rem;
-            font-weight: 650;
-            color: var(--accent);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        /* ===== PUBLICATIONS ===== */
-        .publications-list {
-            max-width: 980px;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin: 0 auto;
-        }
-
-        .pub-card {
-            padding: 1.75rem;
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-left: 4px solid var(--accent);
-            border-radius: 0 var(--radius) var(--radius) 0;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
-        }
-        .pub-card:hover {
-            transform: translateX(6px);
-            box-shadow: var(--shadow-md);
-        }
-        .pub-venue {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        .pub-title {
-            font-family: var(--display);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-        }
-        .pub-authors {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        .pub-authors strong { color: var(--accent); }
-
-        /* ===== BLOG ===== */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .blog-card {
-            background: rgba(255,255,255,0.68);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            border-radius: var(--radius);
-            overflow: hidden;
             text-decoration: none;
-            color: inherit;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
         }
-        .blog-card:hover {
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            transform: translateY(-5px);
+        .sidebar-links a:hover { color: var(--link); }
+        .sidebar-links svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--muted);
         }
 
-        .blog-card-img {
-            height: 190px;
-            overflow: hidden;
-            position: relative;
-        }
-        .blog-card-img img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+        /* ===== MAIN ===== */
+        main { min-width: 0; }
+        section[id] { display: none; }
+        section[id].is-active { display: block; }
 
-        .blog-card-category {
-            position: absolute;
-            top: 1rem; left: 1rem;
-            padding: 0.3rem 0.75rem;
-            background: rgba(255,255,255, 0.92);
-            backdrop-filter: blur(8px);
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-radius: 6px;
-        }
-
-        .blog-card-body {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .blog-card-date {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card-title {
-            font-family: var(--display);
-            font-size: 1.2rem;
+        .page-title {
+            font-size: 1.85rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.6rem;
-            line-height: 1.4;
+            color: var(--heading);
+            letter-spacing: -0.02em;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid var(--border);
         }
+        .prose p { margin-bottom: 1.05rem; }
+        .prose strong { color: var(--heading); font-weight: 700; }
 
-        .blog-card-excerpt {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            flex: 1;
-            margin-bottom: 1rem;
+        .entry {
+            padding: 1.05rem 0;
+            border-bottom: 1px solid var(--border);
         }
-
-        .blog-read-more {
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: gap 0.3s ease;
+        .entry:last-child { border-bottom: 0; }
+        .entry-meta {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 0.2rem;
         }
-        .blog-card:hover .blog-read-more { gap: 0.6rem; }
-
-        .blog-cta {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* ===== EDUCATION ===== */
-        .education-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 1.25rem;
-            max-width: 1100px;
-        }
-        .edu-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        .edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-        .edu-degree {
-            font-family: var(--display);
-            font-size: 1.2rem;
+        .entry h2, .entry h3 {
+            font-size: 1.12rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.15rem;
+            color: var(--heading);
+            line-height: 1.35;
+            margin-bottom: 0.2rem;
         }
-        .edu-school { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-bottom: 0.15rem; }
-        .edu-date { font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.9rem; }
-        .edu-courses { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
-        .edu-courses strong { color: var(--text-primary); font-weight: 700; }
-
-        /* ===== CONTACT ===== */
-        .contact-section {
-            text-align: center;
-            padding: 8rem 3rem;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
+        .entry h2 a, .entry h3 a { color: var(--heading); }
+        .entry h2 a:hover, .entry h3 a:hover { color: var(--link); text-decoration: none; }
+        .entry .venue { font-size: 0.92rem; color: var(--text); margin-bottom: 0.35rem; }
+        .entry p { font-size: 0.95rem; }
+        .entry ul {
+            margin: 0.45rem 0 0 1.15rem;
+            font-size: 0.95rem;
         }
-
-        .contact-section .reveal {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 2.25rem 2rem;
-            border-radius: 26px;
-            background: rgba(255,255,255,0.62);
-            border: 1px solid rgba(226, 229, 238, 0.9);
-            box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(18px) saturate(1.4);
-            -webkit-backdrop-filter: blur(18px) saturate(1.4);
+        .entry li { margin: 0.2rem 0; }
+        .tags {
+            margin-top: 0.45rem;
+            font-size: 0.82rem;
+            color: var(--muted);
         }
 
-        .contact-section .hero-glow-1 {
-            top: auto; bottom: -20%; right: auto; left: 50%;
-            transform: translateX(-50%);
-            width: 800px; height: 400px;
-        }
+        .contact-list { list-style: none; }
+        .contact-list li { margin: 0.4rem 0; }
 
-        .contact-heading {
-            font-family: var(--display);
-            font-size: clamp(2rem, 4.5vw, 3.5rem);
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            position: relative; z-index: 2;
-        }
-        .contact-heading .gradient-text {
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 460px;
-            margin: 0 auto 2.5rem;
-            position: relative; z-index: 2;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 0.85rem;
-            flex-wrap: wrap;
-            position: relative; z-index: 2;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center; gap: 0.55rem;
-            padding: 0.85rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.84rem;
-            font-weight: 500;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        .contact-link svg { width: 17px; height: 17px; stroke: var(--accent); fill: none; stroke-width: 2; }
-        .contact-link:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md), var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        /* ===== FOOTER ===== */
         footer {
-            padding: 2rem 3rem;
-            border-top: 1px solid var(--border-light);
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 1.5rem 2.25rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        /* ===== SEARCH ===== */
+        .search-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            display: none;
+            z-index: 200;
+            padding: 8vh 1rem 2rem;
+        }
+        .search-modal.open { display: block; }
+        .search-dialog {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 1rem 1.1rem 1.2rem;
+        }
+        .search-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative; z-index: 2;
+            margin-bottom: 0.7rem;
+            color: var(--heading);
+            font-weight: 700;
         }
-        .footer-left, .footer-right {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .footer-right a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed;
-            right: 1.25rem;
-            bottom: calc(1.25rem + env(safe-area-inset-bottom));
-            width: 46px;
-            height: 46px;
-            border-radius: 999px;
-            border: 1px solid var(--border-light);
-            background: rgba(247, 248, 252, 0.86);
-            -webkit-backdrop-filter: blur(16px) saturate(1.2);
-            backdrop-filter: blur(16px) saturate(1.2);
-            color: var(--text-primary);
-            box-shadow: var(--shadow-md);
-            display: grid;
-            place-items: center;
+        .search-close {
+            border: 0;
+            background: none;
+            color: var(--muted);
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-            z-index: 5000;
+            font-size: 0.85rem;
         }
-        .back-to-top svg { width: 18px; height: 18px; }
-        .back-to-top.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+        .search-input {
+            width: 100%;
+            padding: 0.65rem 0.75rem;
+            border: 1px solid #d9dce0;
+            font: inherit;
+            font-size: 1rem;
+            outline: none;
         }
-        .back-to-top:hover {
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            transform: translateY(-2px);
+        .search-input:focus { border-color: var(--link); }
+        .search-hint { margin-top: 0.55rem; font-size: 0.82rem; color: var(--muted); }
+        .search-results { margin-top: 0.8rem; }
+        .search-result {
+            display: block;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
         }
-        body.menu-open .back-to-top { opacity: 0; pointer-events: none; }
+        .search-result:hover { text-decoration: none; }
+        .search-result-title { color: var(--heading); font-weight: 700; }
+        .search-result-meta { font-size: 0.8rem; color: var(--muted); }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .nav-backdrop { display: none; }
 
-        .reveal {
-            opacity: 0; transform: translateY(20px);
-            transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hero {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center;
+        @media (max-width: 900px) {
+            .page {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            .hero-content {
-                max-width: 100%;
-            }
-            .hero-actions {
-                justify-content: center;
-            }
-            .hero-visual {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 220px;
-                height: 220px;
-                margin: 0 auto 2rem;
-                order: -1;
+            .sidebar {
+                position: static;
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
-
-        @media (max-width: 768px) {
-            nav {
-                width: calc(100% - 2rem);
-                padding: 0.85rem 1rem;
-            }
-            /* Keep search available on mobile */
-            .nav-actions { display: flex; gap: 0.45rem; }
-            .profile-name { font-size: clamp(1.55rem, 8.2vw, 2.0rem); }
-            body.menu-open { overflow: hidden; }
-            .nav-backdrop{
-                position: fixed;
-                inset: 0;
-                height: 100dvh;
-                width: 100vw;
-                background: rgba(0, 0, 0, 0.28);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.25s ease;
-                z-index: 9990;
-            }
-            .nav-backdrop.open{
-                opacity: 1;
-                pointer-events: auto;
-            }
+        @media (max-width: 760px) {
+            .hamburger { display: flex; }
             .nav-links {
-                display: flex;
-                position: fixed;
-                top: 0;
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 right: 0;
-                height: 100dvh;
-                min-height: 100vh;
-                width: min(78vw, 340px);
-                background: rgba(247, 248, 252, 0.72);
-                -webkit-backdrop-filter: blur(14px);
-                backdrop-filter: blur(14px);
-                border-left: 1px solid var(--border-light);
+                background: #fff;
+                border-bottom: 1px solid var(--border);
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 1.15rem;
-                z-index: 9999;
-                overflow-y: auto;
-                padding: 5.5rem 1.25rem 2rem;
-                box-shadow: -24px 0 60px rgba(0,0,0,0.35);
-                transform: translateX(110%);
-                opacity: 0;
-                pointer-events: none;
-                transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-                -webkit-overflow-scrolling: touch;
-                overscroll-behavior: contain;
+                padding: 0.75rem 1.5rem 1rem;
+                gap: 0.7rem;
             }
-            .nav-links.open {
-                transform: translateX(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-            .nav-links a {
-                font-size: 1.1rem;
-                color: var(--text-primary);
-                pointer-events: auto;
-                touch-action: manipulation;
-            }
-            .hamburger { display: flex; z-index: 10001; }
-            .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-            .hamburger.open span:nth-child(2) { opacity: 0; }
-            .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-
-            section { padding: 4rem 1.5rem; }
-            .hero { padding: 7.25rem 1.5rem 3rem; }
-            .hero-visual {
-                width: 180px;
-                height: 180px;
-                margin: 0 auto 1.5rem;
-            }
-            .about-grid { grid-template-columns: 1fr; }
-            .projects-grid, .education-cards, .skills-mosaic, .blog-grid, .cert-grid { grid-template-columns: 1fr; }
-            .contact-section { padding: 5rem 1.5rem; }
-            .contact-links { flex-direction: column; align-items: center; }
-            footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .nav-links.open { display: flex; }
+            .masthead-inner { position: relative; }
+            body.menu-open { overflow: hidden; }
         }
     </style>
 </head>
 <body>
 
-<!-- Nav -->
-<nav>
-    <a href="#about" class="nav-logo" aria-label="Shahid Kamal">
-        <div class="nav-logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        Shahid Kamal
-    </a>
-    <div class="nav-right">
+<header class="masthead">
+    <div class="masthead-inner">
+        <a class="site-title" href="#about">Shahid Kamal</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#about">Bio</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#blog">Blog</a></li>
+            <li><a href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">CV</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="nav-actions">
+        <div class="nav-tools">
             <button class="icon-btn" type="button" aria-label="Search" id="searchBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
             </button>
+            <button class="hamburger" id="hamburger" type="button" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
-</nav>
+</header>
 <div class="nav-backdrop" id="navBackdrop" onclick="closeMenu()" aria-hidden="true"></div>
 
-<!-- Hero / About -->
-<section class="hero" id="about">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-
-    <div class="landing-grid">
-        <aside class="glass-card profile-card reveal">
-            <div class="profile-photo">
-                <img src="Images/IMG_7966.jpeg" alt="Shahid Kamal">
-            </div>
-            <div class="hero-badge" style="margin-bottom: 0.85rem;">
-                <span class="badge-dot"></span>
-                Open to full-time roles · ML / AI
-            </div>
-            <div class="profile-name">Shahid Kamal</div>
-            <div class="profile-degree">MS Electrical &amp; Computer Engineering (Machine Learning)</div>
-            <div class="profile-school">Northeastern University</div>
-
-            <div class="profile-socials">
-                <a class="social-pill" href="mailto:kamal.sh@northeastern.edu" aria-label="Email">
+<div class="page">
+    <aside class="sidebar">
+        <div class="sidebar-photo">
+            <img src="Images/IMG_7966.jpeg" alt="Shahid Kamal">
+        </div>
+        <div class="sidebar-name">Shahid Kamal</div>
+        <p class="sidebar-bio">MS ECE (Machine Learning) at Northeastern University. AI Engineer working on LLMs, computer vision, and production ML systems.</p>
+        <ul class="sidebar-links">
+            <li>
+                <a href="https://www.northeastern.edu/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>
+                    Northeastern University
+                </a>
+            </li>
+            <li>
+                <a href="https://maps.google.com/?q=Boston,+MA" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                    Boston, MA
+                </a>
+            </li>
+            <li>
+                <a href="mailto:kamal.sh@northeastern.edu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Email
                 </a>
-                <a class="social-pill" href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener" aria-label="GitHub">
+            </li>
+            <li>
+                <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+                    GitHub
                 </a>
-                <a class="social-pill" href="https://www.linkedin.com/in/shahidkamal-ml" target="_blank" rel="noopener" aria-label="LinkedIn">
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/shahidkamal-ml" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
                 </a>
-            </div>
+            </li>
+        </ul>
+    </aside>
 
-            <a href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener" class="btn-primary" style="width: 100%; justify-content: center;">
-                Download Resume
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-            </a>
-        </aside>
-
-        <div class="landing-main">
-            <div class="glass-card panel reveal">
-                <div class="panel-header">
-                    <div class="mini-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                    </div>
-                    <div class="panel-title">About Me</div>
-                </div>
+    <main>
+        <section id="about" class="is-active">
+            <h1 class="page-title">About</h1>
+            <div class="prose">
                 <p>
                     I'm a graduate student at <strong>Northeastern University</strong> pursuing my MS in Electrical and Computer Engineering, specializing in <strong>Machine Learning</strong>. Currently, I work as an <strong>AI Engineer</strong> at <strong>Checkit Analytics</strong>, where I design and deploy LLM-based RAG pipelines and fine-tune open-source models for production financial analytics — reducing external API dependency and shipping AI products end-to-end.
                 </p>
@@ -1628,397 +409,200 @@
                 <p>
                     I'm particularly interested in problems that require owning the full ML lifecycle — from data and experimentation to evaluation, deployment, and monitoring at scale.
                 </p>
-                <div class="download-row">
-                    <a href="#contact" class="btn-ghost">Get in Touch</a>
-                    <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener" class="btn-ghost">View GitHub</a>
-                </div>
+                <p>Open to full-time roles in ML / AI.</p>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Experience -->
-<section id="experience" class="alt-bg">
-    <div class="section-header reveal">
-        <div class="section-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-        <h2 class="section-title">Experience</h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-date">Jan 2026 – Present</div>
-            <h3 class="timeline-role">AI Engineer</h3>
-            <p class="timeline-company">Checkit Analytics · California, United States</p>
-            <ul class="timeline-points">
-                <li>Built LLM-based RAG pipelines for grounded financial question answering and analytics</li>
-                <li>Fine-tuned and deployed Qwen3-4B as the in-house backbone LLM, eliminating external API costs</li>
-                <li>Built Rumor Check, a misinformation detection app leveraging LLM-as-Judge evaluation, and deployed it on AWS</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">Sep 2025 – Dec 2025</div>
-            <h3 class="timeline-role">Graduate Teaching Assistant</h3>
-            <p class="timeline-company">Northeastern University · Boston, MA</p>
-            <ul class="timeline-points">
-                <li>TA for MKTG 6200: Creating and Sustaining Customer Markets (Fall 2025)</li>
-                <li>Graded assignments, facilitated student discussions, and held office hours</li>
-                <li>Assisted professor with course material preparation, exam proctoring, and student evaluations</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">Dec 2022 – Feb 2023</div>
-            <h3 class="timeline-role">Research Intern</h3>
-            <p class="timeline-company">Centre of Advanced Research in Electrified Transportation · Aligarh, India</p>
-            <ul class="timeline-points">
-                <li>EV battery systems suffered from inefficiencies, leading to high energy loss during charging</li>
-                <li>Optimized EV Battery Management System using ML, improving charging efficiency by 7%</li>
-                <li>Utilized Random Forest and LSTMs, reducing energy loss during charging by 10%</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">June 2022 – July 2022</div>
-            <h3 class="timeline-role">Summer Research Fellow</h3>
-            <p class="timeline-company">Indian Institute of Information Technology · Allahabad, India</p>
-            <ul class="timeline-points">
-                <li>Worked with the research team on developing a dynamic routing mechanism in Capsule Neural Networks</li>
-                <li>Researched different Routing mechanisms in CNNs and presented findings in the seminar</li>
-                <li>Developed a hybrid architecture inception_efficientcaps for dynamic routing in CNN Networks</li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <section id="publications">
+            <h1 class="page-title">Publications</h1>
+            <article class="entry">
+                <div class="entry-meta">2024</div>
+                <h2><a href="Publications/edge-devices-covid-cxr-2024.pdf" target="_blank" rel="noopener">Deep Learning Model for Edge Devices for COVID-19 Detection from CXR Images</a></h2>
+                <p class="venue">U. Farooq, <strong>S. Kamal</strong>, M. Sarfraz. 6th International Conference on Bio Signals, Images, and Instrumentation (ICBSII), Chennai, India.</p>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">2023</div>
+                <h2><a href="Publications/comparative-analysis-covid-cxr-2023.pdf" target="_blank" rel="noopener">Comparative Analysis of Deep Learning Techniques for Fast Detection of COVID-19 Using CXR Images</a></h2>
+                <p class="venue"><strong>S. Kamal</strong>, M. Sarfraz, S. Fatma, I. Al Fatma, S. Parween, M. Al Maathidi. Taylor &amp; Francis / CRC Press.</p>
+            </article>
+        </section>
 
-<!-- Projects -->
-<section id="projects">
-    <div class="section-header reveal">
-        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <h2 class="section-title">Projects</h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-        <div class="project-card reveal">
-            <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="AI agents network visualization">
-                <div class="project-img-overlay"></div>
-            </div>
-            <div class="project-body">
-                <h3 class="project-name">Jobly — Agentic Job Platform</h3>
-                <p class="project-desc">Multi-agent agentic AI system automating job search, outreach, tracking, and interview prep. LLM agents for resume tailoring and personalized recruiter messaging with stateful human-in-the-loop controls.</p>
-                <div class="project-tech">
-                    <span>LLM Agents</span><span>RAG</span><span>Python</span><span>Agentic AI</span>
-                </div>
-            </div>
-        </div>
-        <a class="project-card reveal" href="https://github.com/shahidkamal-ml/lab-lens" target="_blank" rel="noopener">
-            <div class="project-img">
-                <img src="Images/lablens.jpeg" alt="Lab Lens project preview">
-                <div class="project-img-overlay"></div>
-            </div>
-            <div class="project-body">
-                <h3 class="project-name">Lab Lens — Healthcare AI</h3>
-                <p class="project-desc">End-to-end healthcare AI for medical report summarization, diagnostic image analysis, and risk prediction. RAG Q&A pipeline with MLOps workflows, monitoring, and bias checks.</p>
-                <div class="project-tech">
-                    <span>Healthcare AI</span><span>MLOps</span><span>RAG</span><span>Computer Vision</span>
-                </div>
-            </div>
-        </a>
-        <a class="project-card reveal" href="Publications/edge-devices-covid-cxr-2024.pdf" target="_blank" rel="noopener">
-            <div class="project-img">
-                <img src="Images/covid-19.png" alt="COVID-19 CXR Detection project preview">
-                <div class="project-img-overlay"></div>
-            </div>
-            <div class="project-body">
-                <h3 class="project-name">COVID-19 CXR Detection</h3>
-                <p class="project-desc">Custom CNN achieving 97.2% accuracy in COVID-19 classification from chest X-rays. Model compression for edge deployment with clinical-level detection metrics.</p>
-                <div class="project-tech">
-                    <span>Deep Learning</span><span>CNN</span><span>Edge AI</span><span>Medical Imaging</span>
-                </div>
-            </div>
-        </a>
-    </div>
-</section>
+        <section id="experience">
+            <h1 class="page-title">Experience</h1>
+            <article class="entry">
+                <div class="entry-meta">Jan 2026 – Present</div>
+                <h3>AI Engineer</h3>
+                <p class="venue">Checkit Analytics · California, United States</p>
+                <ul>
+                    <li>Built LLM-based RAG pipelines for grounded financial question answering and analytics</li>
+                    <li>Fine-tuned and deployed Qwen3-4B as the in-house backbone LLM, eliminating external API costs</li>
+                    <li>Built Rumor Check, a misinformation detection app leveraging LLM-as-Judge evaluation, and deployed it on AWS</li>
+                </ul>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">Sep 2025 – Dec 2025</div>
+                <h3>Graduate Teaching Assistant</h3>
+                <p class="venue">Northeastern University · Boston, MA</p>
+                <ul>
+                    <li>TA for MKTG 6200: Creating and Sustaining Customer Markets (Fall 2025)</li>
+                    <li>Graded assignments, facilitated student discussions, and held office hours</li>
+                    <li>Assisted professor with course material preparation, exam proctoring, and student evaluations</li>
+                </ul>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">Dec 2022 – Feb 2023</div>
+                <h3>Research Intern</h3>
+                <p class="venue">Centre of Advanced Research in Electrified Transportation · Aligarh, India</p>
+                <ul>
+                    <li>EV battery systems suffered from inefficiencies, leading to high energy loss during charging</li>
+                    <li>Optimized EV Battery Management System using ML, improving charging efficiency by 7%</li>
+                    <li>Utilized Random Forest and LSTMs, reducing energy loss during charging by 10%</li>
+                </ul>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">June 2022 – July 2022</div>
+                <h3>Summer Research Fellow</h3>
+                <p class="venue">Indian Institute of Information Technology · Allahabad, India</p>
+                <ul>
+                    <li>Worked with the research team on developing a dynamic routing mechanism in Capsule Neural Networks</li>
+                    <li>Researched different routing mechanisms in CNNs and presented findings in the seminar</li>
+                    <li>Developed a hybrid architecture inception_efficientcaps for dynamic routing in CNN networks</li>
+                </ul>
+            </article>
+        </section>
 
-<!-- Publications -->
-<section id="publications">
-    <div class="section-header reveal">
-        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h2 class="section-title">Publications</h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="publications-list">
-        <a href="Publications/edge-devices-covid-cxr-2024.pdf" target="_blank" class="pub-card reveal" style="text-decoration: none; color: inherit;">
-            <div class="pub-venue">ICBSII 2024 · Chennai, India</div>
-            <h3 class="pub-title">Deep Learning Model for Edge Devices for COVID-19 Detection from CXR Images</h3>
-            <p class="pub-authors">U. Farooq, <strong>S. Kamal</strong>, M. Sarfraz — 6th Intl. Conf. on Bio Signals, Images, and Instrumentation</p>
-        </a>
-        <a href="Publications/comparative-analysis-covid-cxr-2023.pdf" target="_blank" class="pub-card reveal" style="text-decoration: none; color: inherit;">
-            <div class="pub-venue">Taylor & Francis · CRC Press, 2023</div>
-            <h3 class="pub-title">Comparative Analysis of Deep Learning Techniques for Fast Detection of COVID-19 Using CXR Images</h3>
-            <p class="pub-authors"><strong>S. Kamal</strong>, M. Sarfraz, S. Fatma, I. Al Fatma, S. Parween, M. Al Maathidi</p>
-        </a>
-    </div>
-</section>
+        <section id="projects">
+            <h1 class="page-title">Projects</h1>
+            <article class="entry">
+                <h2>Jobly — Agentic Job Platform</h2>
+                <p>Multi-agent agentic AI system automating job search, outreach, tracking, and interview prep. LLM agents for resume tailoring and personalized recruiter messaging with stateful human-in-the-loop controls.</p>
+                <div class="tags">LLM Agents · RAG · Python · Agentic AI</div>
+            </article>
+            <article class="entry">
+                <h2><a href="https://github.com/shahidkamal-ml/lab-lens" target="_blank" rel="noopener">Lab Lens — Healthcare AI</a></h2>
+                <p>End-to-end healthcare AI for medical report summarization, diagnostic image analysis, and risk prediction. RAG Q&amp;A pipeline with MLOps workflows, monitoring, and bias checks.</p>
+                <div class="tags">Healthcare AI · MLOps · RAG · Computer Vision</div>
+            </article>
+            <article class="entry">
+                <h2><a href="Publications/edge-devices-covid-cxr-2024.pdf" target="_blank" rel="noopener">COVID-19 CXR Detection</a></h2>
+                <p>Custom CNN achieving 97.2% accuracy in COVID-19 classification from chest X-rays. Model compression for edge deployment with clinical-level detection metrics.</p>
+                <div class="tags">Deep Learning · CNN · Edge AI · Medical Imaging</div>
+            </article>
+        </section>
 
-<!-- Blog -->
-<section id="blog" class="alt-bg">
-    <div class="section-header reveal">
-        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h2 class="section-title">Blog</h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="blog-grid">
-        <a href="blog/rag-pipelines.html" class="blog-card reveal">
-            <div class="blog-card-img">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80" alt="AI brain visualization">
-                <span class="blog-card-category">LLMs</span>
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-card-date">Feb 2026</div>
-                <h3 class="blog-card-title">Building Production RAG Pipelines: Lessons from the Trenches</h3>
-                <p class="blog-card-excerpt">What I learned deploying retrieval-augmented generation at scale — chunking strategies, embedding models, and the hard trade-offs nobody talks about.</p>
-                <span class="blog-read-more">Read Post <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
-            </div>
-        </a>
-        <a href="blog/fine-tuning-llms.html" class="blog-card reveal">
-            <div class="blog-card-img">
-                <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80" alt="Neural network computation">
-                <span class="blog-card-category">Deep Learning</span>
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-card-date">Jan 2026</div>
-                <h3 class="blog-card-title">Fine-Tuning Qwen3-4B: A Practical Guide to In-House LLMs</h3>
-                <p class="blog-card-excerpt">How we replaced expensive API calls with a fine-tuned open-source model — data prep, training loops, and deployment on AWS.</p>
-                <span class="blog-read-more">Read Post <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
-            </div>
-        </a>
-        <a href="blog/ros2-slam.html" class="blog-card reveal">
-            <div class="blog-card-img">
-                <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&q=80" alt="Robot arm in lab">
-                <span class="blog-card-category">Robotics</span>
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-card-date">Dec 2025</div>
-                <h3 class="blog-card-title">SLAM with ROS 2: Mapping the Unknown with LiDAR</h3>
-                <p class="blog-card-excerpt">An end-to-end walkthrough of implementing SLAM on a mobile robot — from sensor fusion with Kalman filters to real-time map building.</p>
-                <span class="blog-read-more">Read Post <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
-            </div>
-        </a>
-        <a href="blog/covid-cxr-detection.html" class="blog-card reveal">
-            <div class="blog-card-img">
-                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80" alt="Deep learning medical imaging">
-                <span class="blog-card-category">Medical AI</span>
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-card-date">Published 2023 & 2024</div>
-                <h3 class="blog-card-title">Detecting COVID-19 from Chest X-rays: Deep Learning for Edge Devices</h3>
-                <p class="blog-card-excerpt">How I designed a custom CNN achieving 97.2% accuracy on CXR classification, compressed it for edge deployment, and presented findings at two international conferences.</p>
-                <span class="blog-read-more">Read Post <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
-            </div>
-        </a>
-    </div>
-</section>
+        <section id="blog">
+            <h1 class="page-title">Blog</h1>
+            <article class="entry">
+                <div class="entry-meta">Feb 2026 · LLMs</div>
+                <h2><a href="blog/rag-pipelines.html">Building Production RAG Pipelines: Lessons from the Trenches</a></h2>
+                <p>What I learned deploying retrieval-augmented generation at scale — chunking strategies, embedding models, and the hard trade-offs nobody talks about.</p>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">Jan 2026 · Deep Learning</div>
+                <h2><a href="blog/fine-tuning-llms.html">Fine-Tuning Qwen3-4B: A Practical Guide to In-House LLMs</a></h2>
+                <p>How we replaced expensive API calls with a fine-tuned open-source model — data prep, training loops, and deployment on AWS.</p>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">Dec 2025 · Robotics</div>
+                <h2><a href="blog/ros2-slam.html">SLAM with ROS 2: Mapping the Unknown with LiDAR</a></h2>
+                <p>An end-to-end walkthrough of implementing SLAM on a mobile robot — from sensor fusion with Kalman filters to real-time map building.</p>
+            </article>
+            <article class="entry">
+                <div class="entry-meta">2023 &amp; 2024 · Medical AI</div>
+                <h2><a href="blog/covid-cxr-detection.html">Detecting COVID-19 from Chest X-rays: Deep Learning for Edge Devices</a></h2>
+                <p>How I designed a custom CNN achieving 97.2% accuracy on CXR classification, compressed it for edge deployment, and presented findings at two international conferences.</p>
+            </article>
+        </section>
 
-<!-- Contact -->
-<section class="contact-section" id="contact">
-    <div class="hero-glow-1"></div>
-    <div class="reveal">
-        <h2 class="contact-heading">Get in touch<br><span class="gradient-text">Email / LinkedIn</span></h2>
-        <p class="contact-subtitle">Open to ML / computer vision roles, research collaborations, and robotics projects.</p>
-        <div class="contact-links">
-            <a href="mailto:kamal.sh@northeastern.edu" class="contact-link">
-                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                kamal.sh@northeastern.edu
-            </a>
-            <a href="https://github.com/shahidkamal-ml" target="_blank" class="contact-link">
-                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/shahidkamal-ml" target="_blank" class="contact-link">
-                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                LinkedIn
-            </a>
-        </div>
-    </div>
-</section>
+        <section id="contact">
+            <h1 class="page-title">Contact</h1>
+            <div class="prose">
+                <p>Open to ML / computer vision roles, research collaborations, and robotics projects.</p>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:kamal.sh@northeastern.edu">kamal.sh@northeastern.edu</a></li>
+                    <li>GitHub: <a href="https://github.com/shahidkamal-ml" target="_blank" rel="noopener">github.com/shahidkamal-ml</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/shahidkamal-ml" target="_blank" rel="noopener">linkedin.com/in/shahidkamal-ml</a></li>
+                    <li>CV: <a href="Resume/Shahid%20Resume.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>
 
-<footer>
-    <div class="footer-left">© 2026 Shahid Kamal · Built with ❤️</div>
-    <div class="footer-right"><a href="https://github.com/shahidkamal-ml" target="_blank">github.com/shahidkamal-ml</a></div>
-</footer>
+<footer>© 2026 Shahid Kamal</footer>
 
-<!-- Search -->
 <div class="search-modal" id="searchModal" aria-hidden="true">
-    <div class="glass-card search-dialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
         <div class="search-top">
-            <div class="search-title" id="searchTitle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
-                Search
-            </div>
-            <button class="search-close" type="button" id="searchCloseBtn" aria-label="Close search">Esc</button>
+            <div id="searchTitle">Search</div>
+            <button class="search-close" type="button" id="searchCloseBtn">Esc</button>
         </div>
-        <input class="search-input" id="searchInput" type="search" placeholder="Search sections, projects, posts…" autocomplete="off" />
-        <div class="search-hint">Tip: press <strong>Ctrl</strong> + <strong>K</strong> (or <strong>⌘K</strong>) to open search.</div>
+        <input class="search-input" id="searchInput" type="search" placeholder="Search pages, papers, posts…" autocomplete="off">
+        <div class="search-hint">Press <strong>Ctrl</strong> + <strong>K</strong> (or <strong>⌘K</strong>) to open search.</div>
         <div class="search-results" id="searchResults" aria-live="polite"></div>
     </div>
 </div>
 
-<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 19V5"></path>
-        <path d="M5 12l7-7 7 7"></path>
-    </svg>
-</button>
-
 <script>
-// Mobile menu
 function toggleMenu() {
-    const links = document.getElementById('navLinks');
-    const burger = document.getElementById('hamburger');
-    const backdrop = document.getElementById('navBackdrop');
-    const nav = document.querySelector('nav');
-
-    links.classList.toggle('open');
-    burger.classList.toggle('open');
-    backdrop.classList.toggle('open');
-
-    const isOpen = links.classList.contains('open');
-    document.body.classList.toggle('menu-open', isOpen);
-    if (isOpen && nav) nav.style.transform = 'translateX(-50%) translateY(0)';
+    document.getElementById('navLinks').classList.toggle('open');
+    document.body.classList.toggle('menu-open', document.getElementById('navLinks').classList.contains('open'));
 }
 function closeMenu() {
     document.getElementById('navLinks').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-    document.getElementById('navBackdrop').classList.remove('open');
     document.body.classList.remove('menu-open');
-    const nav = document.querySelector('nav');
-    if (nav) nav.style.transform = 'translateX(-50%) translateY(0)';
 }
 
-// Mobile nav link behavior (reliable on iOS Safari)
-// Use window.scrollTo() (more reliable than scrollIntoView with transformed overlays)
-const NAV_OFFSET_PX = 90; // keeps section titles from hiding under the fixed nav
-document.querySelectorAll('#navLinks a').forEach((a) => {
-    a.addEventListener('click', (e) => {
-        const href = a.getAttribute('href') || '';
-        if (!href.startsWith('#')) {
-            closeMenu();
-            return;
-        }
+const VIEWS = ['about', 'publications', 'experience', 'projects', 'blog', 'contact'];
 
-        const id = href.slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-
-        e.preventDefault();
-        closeMenu();
-
-        // Let the drawer begin closing, then scroll
-        setTimeout(() => {
-            const top = target.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET_PX;
-            window.scrollTo({ top, behavior: 'smooth' });
-            history.pushState(null, '', href);
-        }, 180);
+function showView(id, { push = true } = {}) {
+    const next = VIEWS.includes(id) ? id : 'about';
+    document.querySelectorAll('main section[id]').forEach((section) => {
+        section.classList.toggle('is-active', section.id === next);
     });
-});
-
-// Scroll reveals
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('visible'), i * 60);
-            observer.unobserve(entry.target);
-        }
+    document.querySelectorAll('#navLinks a').forEach((a) => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${next}`);
     });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+    closeMenu();
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (push) history.pushState({ view: next }, '', `#${next}`);
+}
 
-// Nav auto-hide (common UX pattern; saves vertical space while scrolling down)
-// Behavior:
-// - Hide on scroll down after a threshold
-// - Show on scroll up or near the top
-// - Never hide while the mobile menu or search modal is open
-let lastScrollY = window.pageYOffset;
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-
-    const curY = window.pageYOffset;
-    const delta = curY - lastScrollY;
-    const nearTop = curY < 120;
-    const overlayOpen =
-        document.body.classList.contains('menu-open') ||
-        document.getElementById('searchModal')?.classList.contains('open');
-
-    if (overlayOpen || nearTop || delta < -8) {
-        nav.style.transform = 'translateX(-50%) translateY(0)';
-    } else if (delta > 10 && curY > 200) {
-        nav.style.transform = 'translateX(-50%) translateY(-120%)';
-    }
-
-    lastScrollY = curY;
-}, { passive: true });
-
-// Back to top
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-    if (!backToTopBtn) return;
-    const show = window.pageYOffset > 600 && !document.body.classList.contains('menu-open');
-    backToTopBtn.classList.toggle('show', show);
-});
-backToTopBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = (a.getAttribute('href') || '').slice(1);
+    if (!VIEWS.includes(id)) return;
+    e.preventDefault();
+    showView(id);
 });
 
-// Search modal (client-side)
+window.addEventListener('popstate', () => {
+    showView((location.hash || '#about').slice(1), { push: false });
+});
+
+showView((location.hash || '#about').slice(1), { push: false });
+
 const searchBtn = document.getElementById('searchBtn');
 const searchModal = document.getElementById('searchModal');
 const searchCloseBtn = document.getElementById('searchCloseBtn');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
-
 let searchIndex = [];
+
 function buildSearchIndex() {
     const items = [];
-
-    // Index sections by id + header title
-    document.querySelectorAll('section[id]').forEach((section) => {
-        const id = section.id;
-        const titleEl =
-            section.querySelector('.section-title') ||
-            section.querySelector('h2') ||
-            section.querySelector('h1');
-        const title = (titleEl?.textContent || id).trim();
-        const text = (section.innerText || '').replace(/\s+/g, ' ').trim();
-        items.push({ title, href: `#${id}`, meta: 'Section', text });
+    document.querySelectorAll('main section[id]').forEach((section) => {
+        const title = (section.querySelector('.page-title')?.textContent || section.id).trim();
+        items.push({ title, href: `#${section.id}`, meta: 'Page', text: (section.innerText || '').replace(/\s+/g, ' ') });
     });
-
-    // Index key cards/links (blog posts, certifications, publications)
-    const cardSelectors = [
-        'a.blog-card',
-        'a.pub-card',
-        'a.cert-card',
-    ];
-    cardSelectors.forEach((sel) => {
-        document.querySelectorAll(sel).forEach((a) => {
-            const href = a.getAttribute('href') || '';
-            const titleEl = a.querySelector('h3') || a.querySelector('.blog-card-title') || a.querySelector('.pub-title') || a.querySelector('.cert-title');
-            const title = (titleEl?.textContent || a.textContent || '').replace(/\s+/g, ' ').trim();
-            if (!href || !title) return;
-            const meta = sel.includes('blog') ? 'Blog' : sel.includes('pub') ? 'Publication' : 'Certificate';
-            const text = (a.innerText || '').replace(/\s+/g, ' ').trim();
-            items.push({ title, href, meta, text });
-        });
+    document.querySelectorAll('a.pub-card, section#publications a, section#blog a, section#projects a').forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        const title = (a.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!href || !title || href.startsWith('#')) return;
+        items.push({ title, href, meta: href.includes('blog/') ? 'Blog' : href.includes('Publications/') ? 'Publication' : 'Link', text: title });
     });
-
-    // Add Resume as a first-class search result
-    items.push({
-        title: 'Resume (PDF)',
-        href: 'Resume/Shahid%20Resume.pdf',
-        meta: 'Resume',
-        text: 'Download resume CV Shahid Kamal Resume PDF',
-    });
-
-    // De-dupe by href + title
+    items.push({ title: 'Resume (PDF)', href: 'Resume/Shahid%20Resume.pdf', meta: 'CV', text: 'Resume CV PDF' });
     const seen = new Set();
     searchIndex = items.filter((it) => {
         const key = `${it.href}::${it.title}`;
@@ -2029,102 +613,60 @@ function buildSearchIndex() {
 }
 
 function openSearch() {
-    if (!searchModal) return;
     searchModal.classList.add('open');
     searchModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('menu-open'); // reuse scroll lock
-    if (searchInput) {
-        searchInput.value = '';
-        setTimeout(() => searchInput.focus(), 50);
-    }
-    if (searchResults) searchResults.innerHTML = '';
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+    setTimeout(() => searchInput.focus(), 50);
 }
 function closeSearch() {
-    if (!searchModal) return;
     searchModal.classList.remove('open');
     searchModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('menu-open');
 }
 
 function renderSearchResults(q) {
-    if (!searchResults) return;
     const query = (q || '').trim().toLowerCase();
-    if (!query) {
-        searchResults.innerHTML = '';
-        return;
-    }
+    if (!query) { searchResults.innerHTML = ''; return; }
     const tokens = query.split(/\s+/).filter(Boolean);
     const results = searchIndex
         .map((it) => {
-            const hay = `${it.title} ${it.meta || ''} ${it.text || ''}`.toLowerCase();
-            const matchesAllTokens = tokens.every((t) => hay.includes(t));
-            const phraseMatch = hay.includes(query);
-            let score = 0;
-            if (phraseMatch) score += 5;
-            score += tokens.reduce((acc, t) => acc + (hay.includes(t) ? 1 : 0), 0);
-            // Small boost for resume when user searches cv/resume
-            if ((it.meta || '').toLowerCase() === 'resume' && (hay.includes('resume') || hay.includes('cv'))) score += 3;
-            return { ...it, _hay: hay, _score: score, _match: matchesAllTokens || phraseMatch };
+            const hay = `${it.title} ${it.meta} ${it.text}`.toLowerCase();
+            const match = tokens.every((t) => hay.includes(t));
+            return { ...it, match, score: match ? tokens.length + (hay.includes(query) ? 3 : 0) : 0 };
         })
-        .filter((it) => it._match)
-        .sort((a, b) => b._score - a._score)
+        .filter((it) => it.match)
+        .sort((a, b) => b.score - a.score)
         .slice(0, 10);
-
-    if (results.length === 0) {
+    if (!results.length) {
         searchResults.innerHTML = `<div class="search-hint">No results for <strong>${q.replace(/</g,'&lt;')}</strong>.</div>`;
         return;
     }
-
-    searchResults.innerHTML = results.map((it) => {
-        const safeTitle = it.title.replace(/</g, '&lt;');
-        const safeMeta = (it.meta || '').replace(/</g, '&lt;');
-        const isPdf = /\.pdf(\?|#|$)/i.test(it.href);
-        const extraAttrs = isPdf ? ' target="_blank" rel="noopener"' : '';
-        return `
-            <a class="search-result" href="${it.href}"${extraAttrs}>
-                <div class="search-result-title">${safeTitle}</div>
-                <div class="search-result-meta">${safeMeta}</div>
-            </a>
-        `.trim();
-    }).join('');
-
-    // Intercept section links for smooth scrolling with nav offset
+    searchResults.innerHTML = results.map((it) => `
+        <a class="search-result" href="${it.href}"${/\.pdf/i.test(it.href) ? ' target="_blank" rel="noopener"' : ''}>
+            <div class="search-result-title">${it.title.replace(/</g,'&lt;')}</div>
+            <div class="search-result-meta">${it.meta}</div>
+        </a>
+    `).join('');
     searchResults.querySelectorAll('a.search-result').forEach((a) => {
         a.addEventListener('click', (e) => {
             const href = a.getAttribute('href') || '';
-            if (!href.startsWith('#')) {
-                closeSearch();
-                return;
-            }
-            const id = href.slice(1);
-            const target = document.getElementById(id);
-            if (!target) return;
+            if (!href.startsWith('#')) { closeSearch(); return; }
             e.preventDefault();
             closeSearch();
-            const top = target.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET_PX;
-            window.scrollTo({ top, behavior: 'smooth' });
-            history.pushState(null, '', href);
+            showView(href.slice(1));
         });
     });
 }
 
-if (searchBtn && searchModal && searchInput) {
-    buildSearchIndex();
-    searchBtn.addEventListener('click', openSearch);
-    searchCloseBtn?.addEventListener('click', closeSearch);
-    searchModal.addEventListener('click', (e) => {
-        if (e.target === searchModal) closeSearch();
-    });
-    document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-            e.preventDefault();
-            openSearch();
-        }
-        if (e.key === 'Escape') closeSearch();
-    });
-    searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
-}
+buildSearchIndex();
+searchBtn.addEventListener('click', openSearch);
+searchCloseBtn.addEventListener('click', closeSearch);
+searchModal.addEventListener('click', (e) => { if (e.target === searchModal) closeSearch(); });
+document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); }
+    if (e.key === 'Escape') closeSearch();
+});
+searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
 </script>
-
 </body>
 </html>
