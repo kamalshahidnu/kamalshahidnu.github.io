@@ -186,19 +186,22 @@
             display: block;
             width: 100%;
             margin-top: 1.1rem;
-            padding: 0.48rem 0.75rem;
+            padding: 0.5rem 1rem;
             text-align: center;
             font-size: 0.84rem;
             font-weight: 600;
             text-decoration: none;
             color: var(--heading);
-            background: #fff;
+            background: transparent;
             border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
         }
         .sidebar-resume:hover {
             text-decoration: none;
-            background: #f9fafb;
-            color: var(--heading);
+            background: var(--link);
+            color: #fff;
+            border-color: var(--link);
         }
 
         /* ===== MAIN ===== */
