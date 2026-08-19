@@ -403,6 +403,7 @@
                 width: 100%;
                 margin: 0 auto;
             }
+            body:not(.view-about) .sidebar { display: none; }
             .sidebar-resume { min-height: 44px; padding: 0.7rem 1rem; }
             .page-title { font-size: 1.5rem; }
             .search-modal { padding: 5.5rem 0.75rem 1.25rem; }
@@ -705,6 +706,7 @@ function showView(id, { push = true } = {}) {
     document.querySelectorAll('#navLinks a').forEach((a) => {
         a.classList.toggle('active', a.getAttribute('href') === `#${next}`);
     });
+    document.body.classList.toggle('view-about', next === 'about');
     closeMenu();
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     if (push) history.pushState({ view: next }, '', `#${next}`);
