@@ -177,7 +177,8 @@
             flex-direction: column;
             gap: 0.15rem;
         }
-        .sidebar-links a {
+        .sidebar-links a,
+        .sidebar-links .sidebar-meta {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -458,12 +459,6 @@
         <p class="sidebar-bio">MS ECE (Computer Vision and Machine Learning) at Northeastern University.</p>
         <ul class="sidebar-links">
             <li>
-                <a href="https://www.northeastern.edu/" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>
-                    Northeastern University
-                </a>
-            </li>
-            <li>
                 <a href="https://ostadabbas.sites.northeastern.edu/" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
                     ACLab
@@ -476,10 +471,10 @@
                 </a>
             </li>
             <li>
-                <a href="https://maps.google.com/?q=Boston,+MA" target="_blank" rel="noopener">
+                <span class="sidebar-meta">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
                     Boston, MA
-                </a>
+                </span>
             </li>
             <li>
                 <a href="mailto:kamal.sh@northeastern.edu">
